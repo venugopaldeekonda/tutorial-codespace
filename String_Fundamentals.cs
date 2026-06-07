@@ -217,12 +217,84 @@ My pensive Sara       ! You are    30 years old. The file is located at
 C:\Users\scoleridge\Documents\. You are an adult. Your name has 4 letters. This is a verbatim string literal. This is a verbatim string literal with an escape sequence: \nNew line. The answer to the Ultimate Question of Life, The Universe, and Everything is 42.
 */
 
-
-
-
-
-
-
+/*22. Create a method to sort given string array in alphabetical order and print the sorted array.*/
+string[] names22 = { "Sara", "Venugopal", "Deekonda", "John", "Alice" };
+Array.Sort(names22);
+foreach (string name in names22){
+    Console.WriteLine(name);
+}
+/* Output:
+Alice
+Deekonda
+John
+Sara
+Venugopal
+*/
+/*23. Create a method to reverse a given string and print the reversed string.*/
+string original23 = "Hello World!";
+char[] charArray23 = original23.ToCharArray();              
+Array.Reverse(charArray23);
+string reversed23 = new string(charArray23);
+Console.WriteLine(reversed23); // Output: !dlroW olleH
+/*24. Create a method to check if a given string is a palindrome and print the result.*/
+string original24 = "A man, a plan              , a canal, Panama";
+string cleaned24 = new string(original24.Where(char.IsLetterOrDigit).ToArray()).ToLower();
+string reversed24 = new string(cleaned24.Reverse().ToArray());
+bool isPalindrome24 = cleaned24 == reversed24;
+Console.WriteLine(isPalindrome24); // Output: True
+/*25. Create a method to count the number of occurrences of a specific character in a given string and print the count.*/
+string original25 = "Hello World!";
+char characterToCount25 = 'o';
+int count25 = original25.Count(c => c == characterToCount25);
+Console.WriteLine(count25); // Output: 2       
+/*26. Create a method to determine whether a string represents a numeric value and print the result.*/
+string original26 = "12345";    
+bool isNumeric26 = int.TryParse(original26, out _);
+Console.WriteLine(isNumeric26); // Output: True
+/*27. Create a method to determine whether a string represents a valid email address and print the result.*/
+using System.Text.RegularExpressions;
+string original27 = "john.doe@example.com";
+bool isValidEmail27 = Regex.IsMatch(original27, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+Console.WriteLine(isValidEmail27); // Output: True  
+/*28. Create a method to determine whether a string represents a valid URL and print the result.*/
+using System.Text.RegularExpressions;
+string original28 = "https://www.example.com";
+bool isValidUrl28 = Regex.IsMatch(original28, @"^(https?|ftp)://[^\s/$.?#].[^\s]*$");
+Console.WriteLine(isValidUrl28);
+ // Output: True
+/*29. Create a method to determine whether a string represents a valid date and print the result.*/
+string original29 = "2024-06-01";
+bool isValidDate29 = DateTime.TryParse(original29, out _);
+Console.WriteLine(isValidDate29); // Output: True
+/*30. Create a method to determine whether a string represents a valid time and print the result
+.*/
+string original30 = "14:30:00";
+bool isValidTime30 = TimeSpan.TryParse(original30, out _);
+Console.WriteLine(isValidTime30); // Output: True
+/*31. Create a method to determine whether a string represents a valid GUID and print the result.*/
+string original31 = "d3b07384-d9a0-4c1e-9a0b-1c2d3e4f5g6h";
+bool isValidGuid31 = Guid.TryParse(original31, out _);
+Console.WriteLine(isValidGuid31); // Output: False  
+/*32. Create a method to determine whether a string represents a valid hexadecimal number and print the result.*/
+string original32 = "1A3F";
+bool isValidHex32 = int.TryParse(original32, System.Globalization.NumberStyles.HexNumber, null, out _);
+Console.WriteLine(isValidHex32); // Output: True
+/*33. Create a method to determine whether a string represents a valid binary number and print the result.*/
+string original33 = "101010";
+bool isValidBinary33 = original33.All(c => c == '0' || c == '1');
+Console.WriteLine(isValidBinary33); // Output: True
+/*34. Create a method to determine whether a string represents a valid octal number and print the result.*/
+string original34 = "1234567";
+bool isValidOctal34 = original34.All(c => c >= '0' && c <= '7');
+Console.WriteLine(isValidOctal34); // Output: True
+/*35. Create a method to determine whether a string represents a valid numeric value (C# Programming Guide)*/
+/* 1. To determine whether a string is a valid representation of a specified numeric type, 
+use the static TryParse method that is implemented by all primitive numeric types and also by types such as DateTime and IPAddress. */
+using System;
+class Program
+{
+    static void Main()
+    {       
 
 
 
